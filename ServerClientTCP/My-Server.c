@@ -91,17 +91,17 @@ int main(int argc, char const *argv[])
         printf("%s\n", message);
         char* messageToClient;
         scanf("%s", messageToClient);
+        send(connectionSocketID, messageToClient, sizeof(messageToClient), 0);
         if(!strcmp(messageToClient, "EXIT"))
         {
             printf("Session terminated\n");
             break;
         }
-        send(connectionSocketID, messageToClient, sizeof(messageToClient), 0);
     }
 
     // close() the socket and free the bound port
     // int status = close(socketID)
-    close(connectionSocketID);
+    close(connectionSocketID);  
     close(serverSocketID);
 
 }
