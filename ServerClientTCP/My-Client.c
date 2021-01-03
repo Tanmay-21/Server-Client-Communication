@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
         perror("Connection failure\n");
         exit(EXIT_FAILURE);
     }
-    printf("Connected successfully\n");
+    printf("Connected successfully\nClient: ");
 
     // start communication (sending and receiving messages)
     while(true)
@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
             printf("Session terminated\n");
             break;
         }
-        printf("%s\n", message);
+        printf("Host: %s\nClient: ", message);
     }
 
     // close() the socket

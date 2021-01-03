@@ -88,7 +88,7 @@ int main(int argc, char const *argv[])
             printf("Session terminated\n");
             break;
         }
-        printf("%s\n", message);
+        printf("Client: %s\nHost: ", message);
         char* messageToClient;
         scanf("%s", messageToClient);
         send(connectionSocketID, messageToClient, sizeof(messageToClient), 0);
@@ -101,7 +101,7 @@ int main(int argc, char const *argv[])
 
     // close() the socket and free the bound port
     // int status = close(socketID)
-    close(connectionSocketID);  
+    close(connectionSocketID);
     close(serverSocketID);
 
 }
